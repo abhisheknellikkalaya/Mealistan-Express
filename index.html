@@ -2,77 +2,80 @@
 <html>
 <head>
   <title>Meal Plan Generator - Mealistan Express</title>
+  <link rel="stylesheet" type="text/css" href="meal-plan-generator.css">
   <script src="meal-plan-generator.js"></script>
 </head>
 <body>
-  <h1>Meal Plan Generator - Mealistan Express</h1>
+  <div class="container">
+    <h1>Meal Plan Generator - Mealistan Express</h1>
+    
+    <form>
+      <label for="mealCount">Number of Meals:</label>
+      <select id="mealCount">
+        <option value="2">Two Meals</option>
+        <option value="3">Three Meals</option>
+        <option value="5">Five Meals</option>
+      </select>
+      
+      <label for="dietPreference">Diet Preference:</label>
+      <select id="dietPreference">
+        <option value="balanced">Balanced</option>
+        <option value="low-carb">Low-Carb</option>
+        <option value="low-fat">Low-Fat</option>
+      </select>
+      
+      <label for="healthSpecification">Health Specification:</label>
+      <select id="healthSpecification">
+        <option value="vegan">Vegan</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="alcohol-free">Alcohol-Free</option>
+        <option value="peanut-free">Peanut-Free</option>
+      </select>
+      
+      <label for="calories">Calories:</label>
+      <input type="number" id="calories" name="calories" required>
+      
+      <button type="submit" onclick="generateMealPlan()">Generate Meal Plan</button>
+    </form>
   
-  <form>
-    <label for="mealCount">Number of Meals:</label>
-    <select id="mealCount">
-      <option value="2">Two Meals</option>
-      <option value="3">Three Meals</option>
-      <option value="5">Five Meals</option>
-    </select>
-    
-    <label for="dietPreference">Diet Preference:</label>
-    <select id="dietPreference">
-      <option value="balanced">Balanced</option>
-      <option value="low-carb">Low-Carb</option>
-      <option value="low-fat">Low-Fat</option>
-    </select>
-    
-    <label for="healthSpecification">Health Specification:</label>
-    <select id="healthSpecification">
-      <option value="vegan">Vegan</option>
-      <option value="vegetarian">Vegetarian</option>
-      <option value="alcohol-free">Alcohol-Free</option>
-      <option value="peanut-free">Peanut-Free</option>
-    </select>
-    
-    <label for="calories">Calories:</label>
-    <input type="number" id="calories" name="calories" required>
-    
-    <button type="submit" onclick="generateMealPlan()">Generate Meal Plan</button>
-  </form>
-
-  <table id="mealPlanTable">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Breakfast</td>
-        <td id="mondayBreakfast"></td>
-        <td id="tuesdayBreakfast"></td>
-        <td id="wednesdayBreakfast"></td>
-        <td id="thursdayBreakfast"></td>
-        <td id="fridayBreakfast"></td>
-      </tr>
-      <tr>
-        <td>Lunch</td>
-        <td id="mondayLunch"></td>
-        <td id="tuesdayLunch"></td>
-        <td id="wednesdayLunch"></td>
-        <td id="thursdayLunch"></td>
-        <td id="fridayLunch"></td>
-      </tr>
-      <tr>
-        <td>Dinner</td>
-        <td id="mondayDinner"></td>
-        <td id="tuesdayDinner"></td>
-        <td id="wednesdayDinner"></td>
-        <td id="thursdayDinner"></td>
-        <td id="fridayDinner"></td>
-      </tr>
-    </tbody>
-  </table>
+    <table id="mealPlanTable">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Breakfast</td>
+          <td id="mondayBreakfast"></td>
+          <td id="tuesdayBreakfast"></td>
+          <td id="wednesdayBreakfast"></td>
+          <td id="thursdayBreakfast"></td>
+          <td id="fridayBreakfast"></td>
+        </tr>
+        <tr>
+          <td>Lunch</td>
+          <td id="mondayLunch"></td>
+          <td id="tuesdayLunch"></td>
+          <td id="wednesdayLunch"></td>
+          <td id="thursdayLunch"></td>
+          <td id="fridayLunch"></td>
+        </tr>
+        <tr>
+          <td>Dinner</td>
+          <td id="mondayDinner"></td>
+          <td id="tuesdayDinner"></td>
+          <td id="wednesdayDinner"></td>
+          <td id="thursdayDinner"></td>
+          <td id="fridayDinner"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
