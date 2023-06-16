@@ -27,3 +27,5 @@ function generateMealPlan() {
       console.log("Error retrieving recipe information:", error);
     });
 }
+
+// The displayMealPlan() function and other helper functions remain the same as provided in the previous response
