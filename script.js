@@ -4,10 +4,18 @@ function generateMealPlan() {
   var dietPreference = document.getElementById("dietPreference").value;
   var healthSpecification = document.getElementById("healthSpecification").value;
   var calories = document.getElementById("calories").value;
-  
-  // Make API call to retrieve recipe information based on user inputs
-  var apiURL = "https://api.edamam.com/api/recipes/v2?type=public&q=&app_id=5849662a&app_key=b902aef41f66db22ff957ecbb27a0312&diet=" + dietPreference + "&health=" + healthSpecification + "&calories=gte%20" + calories + "&random=true&to=" + mealCount;
-  
+
+  // Construct API URL with user inputs as query parameters
+  var apiURL = "https://api.edamam.com/api/recipes/v2?type=public&" +
+    "app_id=5849662a&" +
+    "app_key=b902aef41f66db22ff957ecbb27a0312&" +
+    "q=&" +
+    "diet=" + dietPreference + "&" +
+    "health=" + healthSpecification + "&" +
+    "calories=gte%20" + calories + "&" +
+    "random=true&" +
+    "to=" + mealCount;
+
   fetch(apiURL)
     .then(function(response) {
       return response.json();
@@ -18,69 +26,4 @@ function generateMealPlan() {
     .catch(function(error) {
       console.log("Error retrieving recipe information:", error);
     });
-}
-
-function displayMealPlan(data) {
-  var mealPlanTable = document.getElementById("mealPlanTable");
-  
-  // Clear existing meal plan
-  mealPlanTable.querySelectorAll("td").forEach(function(cell) {
-    cell.innerHTML = "";
-  });
-  
-  // Populate meal plan table with recipe information
-  for (var i = 0; i < data.hits.length; i++) {
-    var meal = data.hits[i].recipe;
-    
-    var dayIndex = i % 5 + 1; // Generate meal plan for Monday to Friday
-    var mealType = "";
-    
-    if (i < 5) {
-      mealType = "Breakfast";
-    } else if (i < 10) {
-      mealType = "Lunch";
-    } else {
-      mealType = "Dinner";
-    }
-    
-    var cell = document.getElementById(getTableCellId(mealType, dayIndex));
-    
-    var mealName = document.createElement("p");
-    mealName.textContent = meal.label;
-    
-    var mealImage = document.createElement("img");
-    mealImage.src = meal.image;
-    
-    var ingredients = document.createElement("ul");
-    meal.ingredientLines.forEach(function(ingredient) {
-      var ingredientItem = document.createElement("li");
-      ingredientItem.textContent = ingredient;
-      ingredients.appendChild(ingredientItem);
-    });
-    
-    cell.appendChild(mealName);
-    cell.appendChild(mealImage);
-    cell.appendChild(ingredients);
-  }
-}
-
-function getTableCellId(mealType, dayIndex) {
-  return dayIndexToName(dayIndex) + mealType.toLowerCase();
-}
-
-function dayIndexToName(dayIndex) {
-  switch (dayIndex) {
-    case 1:
-      return "monday";
-    case 2:
-      return "tuesday";
-    case 3:
-      return "wednesday";
-    case 4:
-      return "thursday";
-    case 5:
-      return "friday";
-    default:
-      return "";
-  }
 }
