@@ -6,9 +6,7 @@ function generateMealPlan() {
   var calories = document.getElementById("calories").value;
   
   // Make API call to retrieve recipe information based on user inputs
-  // You will need to replace 'YOUR_APP_ID' and 'YOUR_APP_KEY' with your actual Edamam API credentials
-  var apiURL = "https://api.edamam.com/api/recipes/v2?type=public&q=&app_id=64fd9f86&app_key=
-10c784d31af8735ed43516e8cc7ad98d&diet=" + dietPreference + "&health=" + healthSpecification + "&calories=gte%20" + calories + "&random=true&to=" + mealCount;
+  var apiURL = "https://api.edamam.com/api/recipes/v2?type=public&q=&app_id=5849662a&app_key=b902aef41f66db22ff957ecbb27a0312&diet=" + dietPreference + "&health=" + healthSpecification + "&calories=gte%20" + calories + "&random=true&to=" + mealCount;
   
   fetch(apiURL)
     .then(function(response) {
