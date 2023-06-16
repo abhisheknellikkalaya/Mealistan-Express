@@ -2,11 +2,14 @@
 <html>
 <head>
   <title>Meal Plan Generator - Mealistan Express</title>
+  <style>
+    /* Add CSS styles for the table and other elements as needed */
+  </style>
 </head>
 <body>
   <h1>Meal Plan Generator - Mealistan Express</h1>
   
-  <form>
+  <form id="mealPlanForm">
     <label for="mealCount">Number of Meals:</label>
     <select id="mealCount">
       <option value="2">Two Meals</option>
@@ -32,7 +35,13 @@
     <label for="calories">Calories:</label>
     <input type="number" id="calories" name="calories" required>
     
-    <button type="submit">Generate Meal Plan</button>
+    <button type="submit" id="generateButton">Generate Meal Plan</button>
   </form>
+  
+  <div id="mealPlanTable">
+    <!-- The generated meal plan table will be displayed here -->
+  </div>
+  
+  <script src="mealPlanGenerator.js"></script>
 </body>
 </html>
